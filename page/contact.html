@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contact</title>
+</head>
+<body>
+    <!-- start navbar -->
+    <div style="position:relative;width:100%;background-color: rgb(89, 255, 0);">
+        <div style="position:absolute;left:44%;top:20%">
+            <nav>
+                <a href="../index.html">Home</a> |
+                <a href="#">Contact</a> |
+                <a href="../page/aboutme.html">About me</a>
+            </nav>
+        </div>
+        <hr size="30px">
+        <hr>
+    </div>
+    <!-- END navbar -->
+    
+    <!-- Start Form -->
+    <div>
+        <h1>
+            Contact ME
+        </h1>
+        <form action="form.php" method="POST">
+            <label for="Email">Nama:</label> <br>
+            <input type="nama" name="nama" id="email" value="" placeholder="ex: Budi" required> <br>
+            <label for="Email">Email:</label> <br>
+            <input type="email" name="Email" id="email" value="" placeholder="Alamat Email" required> <br>
+            <label for="pesan">Pesan:</label><br>
+            <textarea name="pesan" cols="30" rows="10" id="pesan" placeholder="Tulis pesan anda..." required></textarea> 
+            <div style="position:absolute;top:48%;left:20%">
+                <input type="reset" name="r_button">
+                <input type="submit" value="Submit" name="t_button">
+            </div>
+        </form>
+    </div>
+    <!-- End Form -->
+
+    <!-- FOOTER -->
+    <div style="Position:relative;margin-top:15%;width:100%">
+        <hr>
+        <footer style="text-align: center;">
+            <p>Copyright &copy; 2023 TUNBudi06</p>
+            <p style="position:absolute;top:160%;right:2%;">GNU General Public License (GPL)</p>
+        </footer>
+    </div>
+    <!-- FOOTER -->
+</body>
+</html>
