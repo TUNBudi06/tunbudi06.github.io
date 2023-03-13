@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Contact</title>
 </head>
 <body>
@@ -25,18 +26,48 @@
         <h1>
             Contact ME
         </h1>
-        <form action="form.php" method="POST">
-            <label for="Email">Nama:</label> <br>
-            <input type="nama" name="nama" id="email" value="" placeholder="ex: Budi" required> <br>
-            <label for="Email">Email:</label> <br>
-            <input type="email" name="Email" id="email" value="" placeholder="Alamat Email" required> <br>
+        <form id="contact-form" action="#" method="POST">
+            <label for="nama">Nama:</label> <br>
+            <input type="text" name="nama" id="nama" value="" placeholder="ex: Budi" required> <br>
+            <label for="email">Email:</label> <br>
+            <input type="email" name="email" id="email" value="" placeholder="Alamat Email" required> <br>
             <label for="pesan">Pesan:</label><br>
             <textarea name="pesan" cols="30" rows="10" id="pesan" placeholder="Tulis pesan anda..." required></textarea> 
-            <div style="position:absolute;top:48%;left:20%">
-                <input type="reset" name="r_button">
-                <input type="submit" value="Submit" name="t_button">
-            </div>
+            <input type="submit" value="Kirim Pesan" name="t_button">
         </form>
+    
+        <script>
+            const form = document.getElementById('contact-form');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+    
+                // Ambil value dari form
+                const nama = document.getElementById('nama').value;
+                const email = document.getElementById('email').value;
+                const pesan = document.getElementById('pesan').value;
+    
+                // Buat pesan yang akan dikirim
+                const message = `Dari: ${nama} (${email})\nPesan: ${pesan}`;
+    
+                // Ganti dengan chat_id dan token bot Anda
+                const chatId = '1670106753';
+                const token = '5354153853:AAG2kdQo_IsZu4A_Uz3_aPzh_FoXmkLSrGQ';
+    
+                // Kirim pesan menggunakan axios
+                axios.post(`https://api.telegram.org/bot${token}/sendMessage`, {
+                    chat_id: chatId,
+                    text: message
+                })
+                .then(response => {
+                    console.log(response.data);
+                    alert('Pesan berhasil dikirim!');
+                })
+                .catch(error => {
+                    console.error(error);
+                    alert('Pesan gagal dikirim. Silakan coba lagi.');
+                });
+            });
+        </script>
     </div>
     <!-- End Form -->
 
